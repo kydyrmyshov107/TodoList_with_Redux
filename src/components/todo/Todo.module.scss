@@ -1,0 +1,216 @@
+.todo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  input {
+    max-width: 190px;
+    background-color: #f5f5f5;
+    color: #242424;
+    padding: 0.15rem 0.5rem;
+    min-height: 40px;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid;
+    line-height: 1.15;
+    box-shadow: 0px 10px 20px -18px;
+  }
+
+  input:focus {
+    border-bottom: 2px solid #7e0000;
+    border-radius: 4px 4px 2px 2px;
+  }
+
+  input:hover {
+    outline: 1px solid lightgrey;
+  }
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    cursor: pointer;
+    width: 120px;
+    height: 40px;
+    background-image: linear-gradient(
+      to top,
+      #d8d9db 0%,
+      #fff 80%,
+      #fdfdfd 100%
+    );
+    border: 1px solid #8f9092;
+    transition: all 0.2s ease;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #606060;
+    text-shadow: 0 1px #fff;
+  }
+
+  button:hover {
+    box-shadow: 0 4px 3px 1px #fcfcfc, 0 6px 8px #d6d7d9, 0 -4px 4px #cecfd1,
+      0 -6px 4px #fefefe, inset 0 0 3px 3px #cecfd1;
+  }
+
+  button:active {
+    box-shadow: 0 4px 3px 1px #fcfcfc, 0 6px 8px #d6d7d9, 0 -4px 4px #cecfd1,
+      0 -6px 4px #fefefe, inset 0 0 5px 3px #999, inset 0 0 30px #aaa;
+  }
+
+  button:focus {
+    box-shadow: 0 4px 3px 1px #fcfcfc, 0 6px 8px #d6d7d9, 0 -4px 4px #cecfd1,
+      0 -6px 4px #fefefe, inset 0 0 5px 3px #999, inset 0 0 30px #aaa;
+  }
+}
+.delete {
+  color: red;
+  cursor: pointer;
+}
+input:checked + p {
+  text-decoration: line-through;
+}
+
+.edit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid;
+    border-radius: 10px;
+    button {
+      padding: 13px 27px;
+      border-radius: 50px;
+      cursor: pointer;
+      border: 0;
+      background-color: white;
+      box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+      letter-spacing: 1.7px;
+      text-transform: uppercase;
+      font-size: 13px;
+      transition: all 0.5s ease;
+    }
+
+    input {
+      margin: 30px;
+      background: none;
+      border: none;
+      outline: none;
+      max-width: 190px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 9999px;
+      box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+      color: #000000;
+    }
+
+    button:hover {
+      letter-spacing: 3px;
+      background-color: hsl(237, 100%, 56%);
+      color: hsl(0, 0%, 100%);
+      box-shadow: rgb(93 24 220) 0px 7px 29px 0px;
+    }
+
+    button:active {
+      letter-spacing: 3px;
+      background-color: hsl(261deg 80% 48%);
+      color: hsl(0, 0%, 100%);
+      box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
+      transform: translateY(10px);
+      transition: 100ms;
+    }
+  }
+}
+
+.render {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  .items {
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgb(0, 0, 0);
+    img:hover {
+      transition: 0.5s ease-in;
+      filter: grayscale(100%);
+    }
+
+    .update {
+      appearance: button;
+      background-color: #1899d6;
+      border: solid transparent;
+      border-radius: 16px;
+      border-width: 0 0 4px;
+      box-sizing: border-box;
+      color: #ffffff;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      line-height: 20px;
+      margin: 0;
+      outline: none;
+      overflow: visible;
+      padding: 13px 19px;
+      text-align: center;
+      text-transform: uppercase;
+      touch-action: manipulation;
+      transform: translateZ(0);
+      transition: filter 0.2s;
+      user-select: none;
+      -webkit-user-select: none;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    .update:after {
+      background-clip: padding-box;
+      background-color: #1cb0f6;
+      border: solid transparent;
+      border-radius: 16px;
+      border-width: 0 0 4px;
+      bottom: -4px;
+      content: "";
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: -1;
+    }
+
+    .update:main,
+    button:focus {
+      user-select: auto;
+    }
+
+    .update:hover:not(:disabled) {
+      filter: brightness(1.1);
+    }
+
+    .update:disabled {
+      cursor: auto;
+    }
+
+    .update:active:after {
+      border-width: 0 0 0px;
+    }
+
+    .update:active {
+      padding-bottom: 10px;
+    }
+
+    img {
+      width: 230px;
+    }
+  }
+}
